@@ -1,0 +1,26 @@
+.card-item {
+  &-header span {
+    font-size: 1rem;
+    color: #636363;
+  }
+
+  &-image {
+    height: 120px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &-title {
+    font-size: 1.2rem !important;
+  }
+
+  &-price {
+    font-size: 1.2rem !important;
+  }
+
+  &-old-price {
+    font-size: 1rem !important;
+    text-decoration: line-through;
+  }
+}
