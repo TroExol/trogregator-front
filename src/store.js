@@ -1,11 +1,11 @@
 import {applyMiddleware, createStore} from 'redux';
 import Thunk from 'redux-thunk';
 //TODO: remove logger
-import Logger from 'redux-logger';
+// import Logger from 'redux-logger';
 
 import Reducers from './reducers';
 
-const usedMiddleware = [Thunk, Logger];
+const usedMiddleware = [Thunk/*, Logger*/];
 
 /* eslint-enable no-undef */
 
