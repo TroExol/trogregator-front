@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const serverUrl = 'http://localhost:7001';
+const serverUrl = 'https://trogregator-server-troexol.vercel.app';
 
 /**
  * @param {'get' || 'post'} method
