@@ -52,6 +52,7 @@ const Fetch = () =>
 
             const newData = [...data, ...delayedData];
             // dispatch(SetData(mock));
+            dispatch(SetData(newData));
             
             if (newData.length) {
                 dispatch(SetError(null));
