@@ -14,10 +14,10 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 const pages = [
-    {
-        name: 'Главная',
-        page: '/',
-    },
+    // {
+    //     name: 'Главная',
+    //     page: '/',
+    // },
 ];
 
 const Navbar = ({
@@ -63,33 +63,35 @@ const Navbar = ({
                                             >
                                                 <MenuIcon/>
                                             </IconButton>
-                                            <Menu
-                                                id="menu-appbar"
-                                                anchorEl={anchorElNav}
-                                                anchorOrigin={{
-                                                    vertical: 'bottom',
-                                                    horizontal: 'left',
-                                                }}
-                                                keepMounted
-                                                transformOrigin={{
-                                                    vertical: 'top',
-                                                    horizontal: 'left',
-                                                }}
-                                                open={Boolean(anchorElNav)}
-                                                onClose={handleCloseNavMenu}
-                                                sx={{
-                                                    display: {xs: 'block', md: 'none'},
-                                                }}>
-                                                {pages.map(({name, page}) => (
-                                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                                        <NavLink to={page}>
-                                                            <Typography textAlign="center">
-                                                                {name}
-                                                            </Typography>
-                                                        </NavLink>
-                                                    </MenuItem>
-                                                ))}
-                                            </Menu>
+                                            {!!pages.length && (
+                                                <Menu
+                                                    id="menu-appbar"
+                                                    anchorEl={anchorElNav}
+                                                    anchorOrigin={{
+                                                        vertical: 'bottom',
+                                                        horizontal: 'left',
+                                                    }}
+                                                    keepMounted
+                                                    transformOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'left',
+                                                    }}
+                                                    open={Boolean(anchorElNav)}
+                                                    onClose={handleCloseNavMenu}
+                                                    sx={{
+                                                        display: {xs: 'block', md: 'none'},
+                                                    }}>
+                                                    {pages.map(({name, page}) => (
+                                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                                            <NavLink to={page}>
+                                                                <Typography textAlign="center">
+                                                                    {name}
+                                                                </Typography>
+                                                            </NavLink>
+                                                        </MenuItem>
+                                                    ))}
+                                                </Menu>
+                                            )}
                                         </Box>
                                         
                                         <Typography
