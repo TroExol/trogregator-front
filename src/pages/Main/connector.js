@@ -6,12 +6,14 @@ const connector = ({
     },
     MainPage: {
         isLoading,
+        isInnerLoading,
         error,
         data,
         searchTerm,
-    } = DefaultState,
+    },
 }) => ({
     isLoading: isLoading || isLoadingMain,
+    isInnerLoading,
     error,
     data,
     searchTerm,

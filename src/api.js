@@ -1,6 +1,8 @@
 import Axios from 'axios';
 
-const serverUrl = 'https://nice-ox-pinafore.cyclic.app';
+// const serverUrl = 'https://nice-ox-pinafore.cyclic.app';
+const serverUrl = 'http://localhost:7001';
+// const serverUrl = 'https://trogregator-server-troexol.vercel.app';
 
 /**
  * @param {'get' || 'post'} method
@@ -40,4 +42,5 @@ export default {
     // Auth: params => safeRequest('post', `${serverUrl}/auth`, params),
     // Signout: () => safeRequest('get', `${serverUrl}/signout`, undefined, true),
     FetchSites: searchTerm => safeRequest('get', `${serverUrl}/items?search=${searchTerm}`),
+    FetchSite: (siteName, searchTerm) => safeRequest('get', `${serverUrl}/items/${siteName}?search=${searchTerm}`),
 };

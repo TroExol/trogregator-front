@@ -1,20 +1,23 @@
-import React, {useEffect, useRef} from 'react';
-import {debounce} from 'lodash/function';
+import React, {useEffect} from 'react';
 import './style.scss';
 import {
     Alert,
     Container,
     CircularProgress,
-    Card,
-    CardContent,
     Typography,
-    Backdrop, MenuItem, InputLabel, FormControl, TextField, Stack, Paper, Button, IconButton,
+    Backdrop,
+    TextField,
+    Stack,
+    Paper,
+    Button,
+    IconButton, Box,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CardItem from '../../components/CardItem';
 
 const Main = ({
     isLoading,
+    isInnerLoading,
     error,
     data,
     searchTerm,
@@ -118,6 +121,11 @@ const Main = ({
                         Ничего не найдено
                     </Typography>
                 )}
+            {isInnerLoading && !isLoading && (
+                <Box sx={{display: 'flex', justifyContent: 'center', margin: '15px 0'}}>
+                    <CircularProgress/>
+                </Box>
+            )}
             <Backdrop
                 sx={{color: '#fff', zIndex: theme => theme.zIndex.drawer + 1}}
                 open={isLoading}>
