@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const serverUrl = 'https://nice-ox-pinafore.cyclic.app/';
+const serverUrl = 'https://nice-ox-pinafore.cyclic.app';
 
 /**
  * @param {'get' || 'post'} method
