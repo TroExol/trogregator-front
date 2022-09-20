@@ -11,8 +11,8 @@ import Main from './pages/Main';
 function App() {
   // const isAuth = checkAuth();
   const isAuth = true;
-  
-  return (
+    
+    return (
       <Provider store={store}>
         <BrowserRouter>
           <Navbar isAuth={isAuth}/>

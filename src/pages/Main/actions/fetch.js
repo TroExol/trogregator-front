@@ -5,6 +5,8 @@ import {SetIsInnerLoading} from './setIsInnerLoading';
 import {SetError} from './setError';
 import {SetData} from './setData';
 
+// import mock from './mock';
+
 const Fetch = () =>
     async (dispatch, getState) => {
         try {
@@ -24,28 +26,32 @@ const Fetch = () =>
                 .map((siteName, index) =>
                     new Promise(async resolve => {
                         const {data: site, errors} = await Api.FetchSite(siteName, searchTerm);
-                        
+
                         if (errors) {
                             dispatch(SetError(errors.message));
                             return resolve();
                         }
-                        
+
+                        if (!site?.items) {
+                            return resolve();
+                        }
+
                         if (!site.items?.length) {
                             delayedData.push(site);
                             return resolve();
                         }
-                        
+
                         data.push(site);
-                        if ((index + 1) % 3 === 0) {
+                        if (data.length % 3 === 0) {
                             dispatch(SetData(data));
                             dispatch(SetIsLoading(false));
                         }
                         resolve();
                     }),
                 )));
-            
+
             const newData = [...data, ...delayedData];
-            dispatch(SetData(newData));
+            // dispatch(SetData(mock));
             
             if (newData.length) {
                 dispatch(SetError(null));
