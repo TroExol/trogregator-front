@@ -14,7 +14,7 @@ const Style = ({color: {secondaryDark}}) => ({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        margin: '2rem 0',
+        margin: '2rem auto',
     },
     containerSitesNavbar: {
         zIndex: 1,

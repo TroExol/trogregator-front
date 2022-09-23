@@ -30,6 +30,7 @@ const Style = {
     }),
     title: {
         fontSize: '1.2rem',
+        wordBreak: 'break-word',
     },
     containerPrice: {
         marginTop: 'auto',
