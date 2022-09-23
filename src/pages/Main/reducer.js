@@ -10,19 +10,19 @@ const reducer = (state = DefaultState, {type, payload}) => {
     switch (type) {
         case SET_IS_LOADING:
             return MutateIsLoading(state, payload);
-            
+        
         case SET_IS_INNER_LOADING:
             return MutateIsInnerLoading(state, payload);
-
+        
         case SET_ERROR:
             return MutateError(state, payload);
-
+        
         case SET_DATA:
             return MutateData(state, payload);
-
+        
         case SET_SEARCH_TERM:
             return MutateSearchTerm(state, payload);
-
+        
         default:
             return state;
     }

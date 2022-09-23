@@ -8,13 +8,13 @@ const reducer = (state = DefaultState, {type, payload}) => {
     switch (type) {
         case SET_ERROR:
             return MutateError(state, payload);
-
+        
         case SET_EMAIL:
             return MutateEmail(state, payload);
-
+        
         case SET_PASSWORD:
             return MutatePassword(state, payload);
-
+        
         default:
             return state;
     }

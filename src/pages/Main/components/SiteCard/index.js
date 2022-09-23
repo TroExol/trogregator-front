@@ -27,12 +27,12 @@ const Style = ({color: {dark, secondaryLight}}) => ({
     '@media screen and (max-width: 992px)': {
         containerItems: {
             gridTemplateColumns: 'repeat(3, 1fr)',
-        }
+        },
     },
     '@media screen and (max-width: 576px)': {
         containerItems: {
             gridTemplateColumns: 'repeat(2, 1fr)',
-        }
+        },
     },
 });
 

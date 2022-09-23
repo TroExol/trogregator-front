@@ -14,10 +14,14 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 const pages = [
-    // {
-    //     name: 'Главная',
-    //     page: '/',
-    // },
+    {
+        name: 'Главная',
+        page: '/',
+    },
+    {
+        name: 'Контакты',
+        page: '/contacts',
+    },
 ];
 
 const Navbar = ({
@@ -96,13 +100,15 @@ const Navbar = ({
                                                 </Menu>
                                             )}
                                         </Box>
-                                        
+
                                         <Typography
                                             variant="h6"
                                             noWrap
                                             component="div"
                                             sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-                                            Trogregator
+                                            <NavLink to="/">
+                                                    Trogregator
+                                            </NavLink>
                                         </Typography>
                                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                                             {pages.map(({name, page}) => (

@@ -24,37 +24,37 @@ const Fetch = () =>
             const data = [];
             const delayedData = [];
             const throttledSetData = throttle(data => dispatch(SetData(data)), 1000);
-
+            
             (await Promise.allSettled(SUPPORTED_SITES
                 .map(siteName =>
                     new Promise(async resolve => {
                         const {data: site, errors} = await Api.FetchSite(siteName, searchTerm);
-
+                        
                         if (errors) {
                             dispatch(SetError(errors.message));
                             return resolve();
                         }
-
+                        
                         if (!site?.items) {
                             return resolve();
                         }
-
+                        
                         if (!site.items?.length) {
                             delayedData.push(site);
                             return resolve();
                         }
-
+                        
                         data.push(site);
                         throttledSetData([...data]);
                         dispatch(SetIsLoading(false));
                         resolve();
                     }),
                 )));
-
+            
             const newData = [...data, ...delayedData];
             // dispatch(SetData(mock));
             dispatch(SetData(newData));
-
+            
             if (newData.length) {
                 dispatch(SetError(null));
             }

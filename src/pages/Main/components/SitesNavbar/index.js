@@ -13,7 +13,7 @@ const Style = ({color: {dark, secondary}}) => ({
     containerPreloader: {
         display: 'flex',
         justifyContent: 'center',
-    }
+    },
 });
 
 export default withStyle(Style)(SitesNavbar);

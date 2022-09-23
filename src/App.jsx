@@ -9,6 +9,7 @@ import store from './store';
 
 import Navbar from './components/Navbar';
 import Main from './pages/Main';
+import Contacts from './pages/Contacts';
 
 function App() {
     // const isAuth = checkAuth();
@@ -25,6 +26,7 @@ function App() {
                                 ? (
                                     <>
                                         <Route index element={<Main/>}/>
+                                        <Route path="/contacts" element={<Contacts/>}/>
                                         <Route path="*" element={<Navigate replace to="/"/>}/>
                                     </>
                                 )

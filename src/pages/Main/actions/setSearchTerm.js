@@ -8,11 +8,13 @@ export const SetSearchTerm = data => ({
     payload: data,
 });
 
-export default function UpdateSearchTerm (value) {
+export default function UpdateSearchTerm(value) {
     return dispatch => {
         dispatch(SetSearchTerm(value));
         
-        const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${value ? `?searchTerm=${value}` : ''}`;
+        const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${value
+            ? `?searchTerm=${value}`
+            : ''}`;
         window.history.pushState({path: newUrl}, '', newUrl);
     };
 };
