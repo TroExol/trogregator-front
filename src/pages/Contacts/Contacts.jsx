@@ -26,9 +26,6 @@ const Contacts = () => {
                         Telegram
                     </a>
                 </Typography>
-                <Typography variant="body1" gutterBottom>
-                    Поддержать: 5469 4900 1346 7085
-                </Typography>
             </Container>
         </>
     );
