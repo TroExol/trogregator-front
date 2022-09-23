@@ -24,6 +24,8 @@ const Navbar = ({
     isAuth,
     
     // signout,
+    
+    classes,
 }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     
@@ -36,7 +38,8 @@ const Navbar = ({
     };
     
     return (
-        <AppBar position="static">
+        <AppBar position="static"
+                className={classes.container}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <>

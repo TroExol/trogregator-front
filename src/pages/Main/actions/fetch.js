@@ -1,3 +1,5 @@
+import {throttle} from 'lodash';
+
 import Api from '../../../api';
 import {SUPPORTED_SITES} from '../../../consts';
 import {SetIsLoading} from './setIsLoading';
@@ -21,9 +23,10 @@ const Fetch = () =>
             
             const data = [];
             const delayedData = [];
-            
+            const throttledSetData = throttle(data => dispatch(SetData(data)), 1000);
+
             (await Promise.allSettled(SUPPORTED_SITES
-                .map((siteName, index) =>
+                .map(siteName =>
                     new Promise(async resolve => {
                         const {data: site, errors} = await Api.FetchSite(siteName, searchTerm);
 
@@ -42,10 +45,8 @@ const Fetch = () =>
                         }
 
                         data.push(site);
-                        if (data.length % 3 === 0) {
-                            dispatch(SetData(data));
-                            dispatch(SetIsLoading(false));
-                        }
+                        throttledSetData([...data]);
+                        dispatch(SetIsLoading(false));
                         resolve();
                     }),
                 )));
@@ -53,7 +54,7 @@ const Fetch = () =>
             const newData = [...data, ...delayedData];
             // dispatch(SetData(mock));
             dispatch(SetData(newData));
-            
+
             if (newData.length) {
                 dispatch(SetError(null));
             }

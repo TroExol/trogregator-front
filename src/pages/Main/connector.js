@@ -1,9 +1,4 @@
-import DefaultState from './defaultState';
-
 const connector = ({
-    Main: {
-        isLoading: isLoadingMain = false,
-    },
     MainPage: {
         isLoading,
         isInnerLoading,
@@ -12,7 +7,7 @@ const connector = ({
         searchTerm,
     },
 }) => ({
-    isLoading: isLoading || isLoadingMain,
+    isLoading,
     isInnerLoading,
     error,
     data,

@@ -1,47 +1,51 @@
 import React from 'react';
 import {
-    Card, CardActionArea, CardContent, CardHeader, CardMedia, Typography,
+    Card,
+    CardActionArea,
+    CardContent,
+    CardHeader,
+    Typography,
 } from '@mui/material';
-import './style.scss';
 
 const CardItem = ({
     name,
     url,
-    imageUrl,
     price,
     oldPrice,
     siteName,
+    
+    classes,
 }) => {
+    const openItem = () => window.open(url, '_blank');
+    
     return (
         <Card>
             <CardActionArea
-                sx={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'start'}}
-                onClick={() => window.open(url, '_blank')}>
+                className={classes.area}
+                onClick={openItem}>
                 <CardHeader
-                    className="card-item-header"
+                    className={classes.header}
                     title={siteName}/>
-                <CardContent>
-                    <div
-                        className="card-item-image"
-                        style={{backgroundImage: `url(${imageUrl || '/'}), url('https://placehold.co/200x120/FFF/888/?text=x')`}}/>
+                <CardContent className={classes.content}>
+                    <div className={classes.image}/>
                     <Typography
-                        className="card-item-title"
+                        className={classes.title}
                         gutterBottom
                         component="div">
                         {name}
                     </Typography>
-                    {oldPrice
-                        ? (
+                    <div className={classes.containerPrice}>
+                        {!!oldPrice && (
                             <Typography
-                                className="card-item-old-price"
+                                className={classes.oldPrice}
                                 color="text.secondary">
                                 {oldPrice} ₽
                             </Typography>
-                        )
-                        : null}
-                    <Typography className="card-item-price">
-                        {price ? `${price} ₽` : 'Цены нет'}
-                    </Typography>
+                        )}
+                        <Typography className={classes.price}>
+                            {price ? `${price} ₽` : 'Цены нет'}
+                        </Typography>
+                    </div>
                 </CardContent>
             </CardActionArea>
         </Card>
